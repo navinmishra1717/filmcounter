@@ -10,9 +10,6 @@ export function SiteHeader() {
         <Link href={ROUTES.home} className="mr-auto text-[18px] font-extrabold text-paper">
           FILMCOUNTER
         </Link>
-        <span className="ml-1.5 flex items-center gap-1.5 border-l border-paper/25 pl-4 text-[12.5px] text-paper/75">
-          Your city<span className="text-[9px]">▾</span>
-        </span>
         <div className="ml-auto flex items-center gap-[26px]">
           <span aria-label="Search" className="text-[14px] text-paper/70">
             ⌕
@@ -33,9 +30,6 @@ export function SiteHeader() {
               </div>
             </div>
           </div>
-          <Link href={ROUTES.home} className="text-[14px] text-paper/85">
-            Schedules
-          </Link>
           <LinkButton href={ROUTES.signIn}>Sign in</LinkButton>
         </div>
       </div>
@@ -53,7 +47,10 @@ export function SiteHeader() {
             <span className="text-[9px]">▾</span>
           </span>
         ))}
-        <Button variant="secondary" className="ml-auto border-paper/30 text-paper hover:bg-transparent active:bg-transparent">
+        <Button
+          variant="secondary"
+          className="ml-auto border-paper/30 text-paper hover:bg-transparent active:bg-transparent"
+        >
           Buy Now
         </Button>
       </div>

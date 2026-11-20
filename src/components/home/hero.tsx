@@ -12,7 +12,7 @@ export function Hero() {
           <div key={i} className="aspect-[2/3]" style={{ background: fill }} />
         ))}
       </div>
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(21,20,19,.94)_5%,rgba(21,20,19,.35)_55%,rgba(21,20,19,.75))]" />
+      <div className="absolute inset-0 bg-linear-to-r from-night/94 from-5% via-night/35 via-55% to-night/75" />
       <div className="relative flex min-h-[400px] flex-col justify-end px-10 py-12">
         <span className="mb-2.5 text-[11px] tracking-[0.14em] text-accent uppercase">Now showing</span>
         <h1 className="mb-[18px] max-w-[14ch] text-[48px] leading-[1.12] font-extrabold tracking-[-0.015em] text-paper">

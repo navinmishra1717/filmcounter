@@ -14,7 +14,11 @@ export type TagProps = HTMLAttributes<HTMLSpanElement> & {
 export function Tag({ variant = "neutral", className, ...props }: TagProps) {
   return (
     <span
-      className={cn("inline-flex items-center px-2.5 py-[3px] text-[11px] tracking-[0.02em]", VARIANTS[variant], className)}
+      className={cn(
+        "inline-flex items-center px-2.5 py-[3px] text-[11px] tracking-[0.02em]",
+        VARIANTS[variant],
+        className,
+      )}
       {...props}
     />
   );

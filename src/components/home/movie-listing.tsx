@@ -17,7 +17,12 @@ export function MovieListing({ tab, movies }: Props) {
         <Link href={ROUTES.home} scroll={false} className={tabLink} aria-current={tab === "now" ? "page" : undefined}>
           Now Showing
         </Link>
-        <Link href={ROUTES.comingSoon} scroll={false} className={tabLink} aria-current={tab === "soon" ? "page" : undefined}>
+        <Link
+          href={ROUTES.comingSoon}
+          scroll={false}
+          className={tabLink}
+          aria-current={tab === "soon" ? "page" : undefined}
+        >
           Coming Soon
         </Link>
       </nav>

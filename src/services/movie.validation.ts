@@ -37,7 +37,9 @@ const FIELDS: { [K in keyof MovieInput]-?: FieldParser } = {
   title: nonEmptyString(200),
   slug: (v) => (typeof v === "string" && SLUG_RE.test(v) ? { value: v } : { error: "must be lowercase-kebab-case" }),
   description: (v) =>
-    typeof v === "string" && v.length <= 5000 ? { value: v.trim() } : { error: "must be a string of at most 5000 characters" },
+    typeof v === "string" && v.length <= 5000
+      ? { value: v.trim() }
+      : { error: "must be a string of at most 5000 characters" },
   language: nonEmptyString(50),
   genres: (v) => {
     if (!Array.isArray(v) || v.length === 0 || !v.every((g) => typeof g === "string" && g.trim())) {
@@ -49,7 +51,9 @@ const FIELDS: { [K in keyof MovieInput]-?: FieldParser } = {
   status: oneOf(MOVIE_STATUSES),
   superhit: (v) => (typeof v === "boolean" ? { value: v } : { error: "must be a boolean" }),
   durationMinutes: nullable((v) =>
-    Number.isInteger(v) && (v as number) > 0 && (v as number) < 1000 ? { value: v } : { error: "must be a positive integer" },
+    Number.isInteger(v) && (v as number) > 0 && (v as number) < 1000
+      ? { value: v }
+      : { error: "must be a positive integer" },
   ),
   releaseDate: nullable((v) =>
     typeof v === "string" && DATE_RE.test(v) && !Number.isNaN(Date.parse(v))
@@ -65,7 +69,8 @@ const FIELDS: { [K in keyof MovieInput]-?: FieldParser } = {
       return { error: "must be a URL" };
     }
   }),
-  posterFill: (v) => (typeof v === "string" && HEX_RE.test(v) ? { value: v } : { error: "must be a hex colour like #d7d3d3" }),
+  posterFill: (v) =>
+    typeof v === "string" && HEX_RE.test(v) ? { value: v } : { error: "must be a hex colour like #d7d3d3" },
 };
 
 function parseFields(body: unknown, required: readonly string[]): Partial<MovieInput> {

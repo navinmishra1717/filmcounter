@@ -9,7 +9,14 @@ export default function GuestPage() {
   return (
     <AuthPanel className="gap-4">
       <AuthHeading title="Guest booking">Where should the tickets land?</AuthHeading>
-      <Input label="Email" type="email" autoComplete="email" autoFocus placeholder="you@example.com" className="min-h-11" />
+      <Input
+        label="Email"
+        type="email"
+        autoComplete="email"
+        autoFocus
+        placeholder="you@example.com"
+        className="min-h-11"
+      />
       <Button block className="mt-0 min-h-11">
         Choose seats
       </Button>

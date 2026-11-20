@@ -1,11 +1,6 @@
 import { slugify } from "@/lib/slug";
 import { ConflictError, NotFoundError } from "./errors";
-import type {
-  CreateTheaterInput,
-  Theater,
-  TheaterFilters,
-  UpdateTheaterInput,
-} from "@/types/theater.types";
+import type { CreateTheaterInput, Theater, TheaterFilters, UpdateTheaterInput } from "@/types/theater.types";
 
 /*
  * In-memory store. This is a stand-in until a database is added: data resets
@@ -16,7 +11,11 @@ import type {
 const SEED: CreateTheaterInput[] = [
   { name: "AMC Empire 25", location: "234 W 42nd St, New York, NY 10036", capacity: 500 },
   { name: "Regal Union Square ScreenX & 4DX", location: "850 Broadway, New York, NY 10003", capacity: 300 },
-  { name: "Alamo Drafthouse Cinema Downtown Brooklyn", location: "445 Albee Square W, Brooklyn, NY 11201", capacity: 400 },
+  {
+    name: "Alamo Drafthouse Cinema Downtown Brooklyn",
+    location: "445 Albee Square W, Brooklyn, NY 11201",
+    capacity: 400,
+  },
 ];
 
 function build(input: CreateTheaterInput, id: string, createdAt: string): Theater {
@@ -87,7 +86,13 @@ export async function updateTheater(id: string, input: UpdateTheaterInput): Prom
   const existing = findOrThrow(id);
   if (input.slug) assertSlugAvailable(input.slug, id);
 
-  const theater: Theater = { ...existing, ...input, id, createdAt: existing.createdAt, updatedAt: new Date().toISOString() };
+  const theater: Theater = {
+    ...existing,
+    ...input,
+    id,
+    createdAt: existing.createdAt,
+    updatedAt: new Date().toISOString(),
+  };
   store.set(id, theater);
   return theater;
 }

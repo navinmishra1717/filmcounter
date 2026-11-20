@@ -27,7 +27,10 @@ function fromListing(movie: ListingMovie, status: MovieStatus): Movie {
     title: movie.title,
     description: "",
     language,
-    genres: genreList.split(",").map((g) => g.trim()).filter(Boolean),
+    genres: genreList
+      .split(",")
+      .map((g) => g.trim())
+      .filter(Boolean),
     certification: movie.badge as Certification,
     status,
     superhit: movie.superhit,
@@ -119,7 +122,13 @@ export async function updateMovie(id: string, input: UpdateMovieInput): Promise<
   const existing = findOrThrow(id);
   if (input.slug) assertSlugAvailable(input.slug, id);
 
-  const movie: Movie = { ...existing, ...input, id, createdAt: existing.createdAt, updatedAt: new Date().toISOString() };
+  const movie: Movie = {
+    ...existing,
+    ...input,
+    id,
+    createdAt: existing.createdAt,
+    updatedAt: new Date().toISOString(),
+  };
   store.set(id, movie);
   return movie;
 }

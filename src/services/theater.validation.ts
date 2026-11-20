@@ -1,10 +1,5 @@
 import { ValidationError } from "./errors";
-import type {
-  CreateTheaterInput,
-  TheaterFilters,
-  TheaterInput,
-  UpdateTheaterInput,
-} from "@/types/theater.types";
+import type { CreateTheaterInput, TheaterFilters, TheaterInput, UpdateTheaterInput } from "@/types/theater.types";
 
 const REQUIRED_ON_CREATE = ["name", "location", "capacity"] as const;
 const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;

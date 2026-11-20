@@ -14,7 +14,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
           <div key={i} className="aspect-[2/3]" style={{ background: fill }} />
         ))}
       </div>
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(21,20,19,.55),rgba(21,20,19,.9))]" />
+      <div className="absolute inset-0 bg-linear-to-b from-night/55 to-night/90" />
       <AuthFlowProvider>{children}</AuthFlowProvider>
     </main>
   );
