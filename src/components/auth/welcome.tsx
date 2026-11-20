@@ -24,7 +24,7 @@ export function Welcome() {
       <Tag variant="accent" className="self-start">
         Signed in
       </Tag>
-      <AuthHeading title="Welcome back, Mira.">Row H held for {FEATURED_FILM}, 7:45pm.</AuthHeading>
+      <AuthHeading title="Welcome back, Mira.">You're signed in</AuthHeading>
       <Button block className="mt-0 min-h-11">
         Choose seats
       </Button>
