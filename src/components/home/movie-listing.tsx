@@ -27,7 +27,7 @@ export function MovieListing({ tab, movies }: Props) {
         </Link>
       </nav>
 
-      <ul className="grid grid-cols-6 gap-5">
+      <ul className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
         {movies.map((movie) => (
           <li key={movie.title} className="flex flex-col gap-2.5">
             <div
